@@ -13,5 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="add-container">
+    <ion-input [(ngModel)]="newTask"></ion-input>
+    <ion-button (click)="addTask()">Add</ion-button>
+  </div>
+
   <app-task *ngFor="let task of tasks" [task]="task"></app-task>
 </ion-content>
