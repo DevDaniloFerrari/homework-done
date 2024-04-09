@@ -1,10 +1,9 @@
 export default class TaskModel {
-  #id?: number;
+  #id?: string;
   #description?: string;
   #isDone: boolean;
 
-  constructor(id?: number, description?: string) {
-    this.#id = id;
+  constructor(description?: string) {
     this.#description = description;
     this.#isDone = false;
   }
@@ -23,5 +22,13 @@ export default class TaskModel {
 
   complete() {
     this.#isDone = true;
+  }
+
+  toObject(){
+    return {
+      id: this.#id,
+      description: this.#description,
+      isDone: this.#isDone
+    }
   }
 }

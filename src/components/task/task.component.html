@@ -1,5 +1,5 @@
 <p>
-  <ion-checkbox (click)="completeTask()"></ion-checkbox>
+  <ion-checkbox (click)="completeTask()" [checked]="task.isDone"></ion-checkbox>
   {{task.description}}
   <ion-button (click)="deleteTask()">delete</ion-button>
 </p>
