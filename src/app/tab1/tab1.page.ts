@@ -10,9 +10,18 @@ export class Tab1Page {
   constructor() {}
 
   description: string = '';
-  tasks: TaskModel[] = [new TaskModel(1, 'task 1'), new TaskModel(2, 'task 2'), new TaskModel(3, 'task 3')];
+  tasks: TaskModel[] = [
+    new TaskModel(1, 'task 1'),
+    new TaskModel(2, 'task 2'),
+    new TaskModel(3, 'task 3'),
+  ];
 
   addTask() {
     this.tasks.push(new TaskModel(this.tasks.length + 1, this.description));
   }
+
+  deleteTask(task: any) {
+    this.tasks = this.tasks.filter((x) => x.id !== task.id);
+  }
+
 }

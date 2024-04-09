@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import TaskModel from 'src/models/task';
 
 @Component({
@@ -14,8 +14,10 @@ export class TaskComponent  implements OnInit {
 
   @Input() task: TaskModel = new TaskModel();
 
-  deleteTask() {
-      
+  @Output() childEvent = new EventEmitter();
+
+  deleteTask(){
+    this.childEvent.emit(this.task);
   }
 
 }
