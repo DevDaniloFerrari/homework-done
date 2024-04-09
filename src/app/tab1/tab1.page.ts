@@ -20,8 +20,12 @@ export class Tab1Page {
     this.tasks.push(new TaskModel(this.tasks.length + 1, this.description));
   }
 
-  deleteTask(task: any) {
+  deleteTask(task: TaskModel) {
     this.tasks = this.tasks.filter((x) => x.id !== task.id);
   }
 
+  completeTask(task: TaskModel){
+    const index = this.tasks.findIndex(x => x.id === task.id);
+    this.tasks[index].complete();
+  }
 }

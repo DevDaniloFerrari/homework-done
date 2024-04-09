@@ -14,10 +14,14 @@ export class TaskComponent  implements OnInit {
 
   @Input() task: TaskModel = new TaskModel();
 
-  @Output() childEvent = new EventEmitter();
+  @Output() deleteTaskEvent = new EventEmitter();
+  @Output() completeTaskEvent = new EventEmitter();
 
   deleteTask(){
-    this.childEvent.emit(this.task);
+    this.deleteTaskEvent.emit(this.task);
   }
 
+  completeTask(){
+    this.completeTaskEvent.emit(this.task);
+  }
 }

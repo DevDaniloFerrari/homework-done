@@ -18,5 +18,5 @@
     <ion-button (click)="addTask()">Add</ion-button>
   </div>
 
-  <app-task *ngFor="let task of tasks" [task]="task" (childEvent)="deleteTask($event)"></app-task>
+  <app-task *ngFor="let task of tasks" [task]="task" (deleteTaskEvent)="deleteTask($event)" (completeTaskEvent)="completeTask($event)"></app-task>
 </ion-content>
