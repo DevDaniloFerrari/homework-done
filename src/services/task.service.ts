@@ -10,7 +10,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  #API_URL = 'http://localhost:3000/tasks'
+  #API_URL = 'http://localhost:3000/tasks/'
 
   addTask(task: TaskModel): Observable<TaskModel> {
     return this.http.post<TaskModel>(this.#API_URL, task.toObject());
@@ -18,5 +18,13 @@ export class TaskService {
 
   getTasks(): Observable<TaskModel[]> {
     return this.http.get<TaskModel[]>(this.#API_URL);
+  }
+
+  deleteTask(id: string): Observable<TaskModel> {
+    return this.http.delete<TaskModel>(this.#API_URL+id);
+  }
+
+  updateTask(task: TaskModel): Observable<TaskModel> {
+    return this.http.put<TaskModel>(this.#API_URL+task.id, task.toObject());
   }
 }

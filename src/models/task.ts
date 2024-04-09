@@ -3,9 +3,10 @@ export default class TaskModel {
   #description?: string;
   #isDone: boolean;
 
-  constructor(description?: string) {
+  constructor(description?: string, isDone?: boolean, id?: string) {
     this.#description = description;
-    this.#isDone = false;
+    this.#isDone = isDone || false;
+    this.#id = id;
   }
 
   get id() {
@@ -24,11 +25,15 @@ export default class TaskModel {
     this.#isDone = true;
   }
 
-  toObject(){
+  toObject() {
     return {
       id: this.#id,
       description: this.#description,
-      isDone: this.#isDone
-    }
+      isDone: this.#isDone,
+    };
+  }
+
+  static createModel(task: any) {
+    return new TaskModel(task.description, task.isDone, task.id);
   }
 }

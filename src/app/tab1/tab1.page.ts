@@ -19,23 +19,27 @@ export class Tab1Page {
 
   async addTask() {
     let task = new TaskModel(this.description);
-    this.tasks.push(task);
+    this.description = ''
     this.taskService.addTask(task).subscribe((response) => {
+      this.getTasks();
     });
   }
 
   getTasks() {
     this.taskService.getTasks().subscribe((response) => {
-      this.tasks = response;
+      this.tasks = response.map((task) => TaskModel.createModel(task));
     });
   }
 
   deleteTask(task: TaskModel) {
-    this.tasks = this.tasks.filter((x) => x.id !== task.id);
+    this.taskService.deleteTask(task.id!).subscribe((response) => {
+      this.tasks = this.tasks.filter((x) => x.id !== task.id);
+    });
   }
 
   completeTask(task: TaskModel) {
     const index = this.tasks.findIndex((x) => x.id === task.id);
     this.tasks[index].complete();
+    this.taskService.updateTask(task).subscribe((response) => {});
   }
 }
