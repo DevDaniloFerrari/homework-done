@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import TaskModel from 'src/models/task';
 
 @Component({
   selector: 'app-tab1',
@@ -8,10 +9,10 @@ import { Component } from '@angular/core';
 export class Tab1Page {
   constructor() {}
 
-  newTask: string = '';
-  tasks: string[] = ['task 1', 'task 2', 'task 3'];
+  description: string = '';
+  tasks: TaskModel[] = [new TaskModel(1, 'task 1'), new TaskModel(2, 'task 2'), new TaskModel(3, 'task 3')];
 
   addTask() {
-    this.tasks.push(this.newTask);
+    this.tasks.push(new TaskModel(this.tasks.length + 1, this.description));
   }
 }

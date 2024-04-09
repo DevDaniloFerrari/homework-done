@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import TaskModel from 'src/models/task';
 
 @Component({
   selector: 'app-task',
@@ -11,6 +12,10 @@ export class TaskComponent  implements OnInit {
 
   ngOnInit() {}
 
-  @Input() task = ''
+  @Input() task: TaskModel = new TaskModel();
+
+  deleteTask() {
+      
+  }
 
 }
