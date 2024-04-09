@@ -13,4 +13,5 @@
     </ion-toolbar>
   </ion-header>
 
+  <app-task *ngFor="let task of tasks" [task]="task" [readonly]="true"></app-task>
 </ion-content>

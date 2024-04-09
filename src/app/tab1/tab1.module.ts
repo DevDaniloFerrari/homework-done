@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { TaskComponent } from 'src/components/task/task.component';
+import { ComponentsModule } from 'src/components/components.module';
 
 @NgModule({
   imports: [
@@ -13,7 +13,8 @@ import { TaskComponent } from 'src/components/task/task.component';
     CommonModule,
     FormsModule,
     Tab1PageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [Tab1Page, TaskComponent],
+  declarations: [Tab1Page],
 })
 export class Tab1PageModule {}

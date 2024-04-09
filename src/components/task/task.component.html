@@ -1,5 +1,5 @@
 <p>
-  <ion-checkbox (click)="completeTask()" [checked]="task.isDone"></ion-checkbox>
+  <ion-checkbox *ngIf="!readonly" (click)="completeTask()" [checked]="task.isDone"></ion-checkbox>
   {{task.description}}
-  <ion-button (click)="deleteTask()">delete</ion-button>
+  <ion-button *ngIf="!readonly" (click)="deleteTask()">delete</ion-button>
 </p>

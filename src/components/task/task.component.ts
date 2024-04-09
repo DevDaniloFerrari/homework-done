@@ -6,22 +6,22 @@ import TaskModel from 'src/models/task';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent  implements OnInit {
-
-  constructor() { }
+export class TaskComponent implements OnInit {
+  constructor() {}
 
   ngOnInit() {}
 
   @Input() task: TaskModel = new TaskModel();
+  @Input() readonly: boolean = false;
 
   @Output() deleteTaskEvent = new EventEmitter();
   @Output() completeTaskEvent = new EventEmitter();
 
-  deleteTask(){
+  deleteTask() {
     this.deleteTaskEvent.emit(this.task);
   }
 
-  completeTask(){
+  completeTask() {
     this.completeTaskEvent.emit(this.task);
   }
 }
